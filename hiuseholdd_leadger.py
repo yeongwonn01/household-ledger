@@ -19,8 +19,11 @@ filename = "data.txt"
 while True:
     recv = int(input("0 : 전체 내역 \n1 : 입금\n2 : 출금 \n3 : 내역 수정 \n-1 : 종료 \n원하는 번호를 입력 : "))
     if recv == 0:
-        #전체 내역 출력
-        recv
+        with open(filename,'r',encoding="Utf-8") as file:
+            line = file.readlines()
+        
+        for i in line:
+            print(i,end='')
     elif recv == 1:
         recv_input = input("입금 내역을 입력하세요.\n입력형식 : xxxx년 xx월 xx일 x원\n:")
         file_io(recv_input,True)
