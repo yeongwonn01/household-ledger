@@ -6,6 +6,7 @@ class MainApp(QMainWindow,Ui_Dialog):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+    
 
 
 if __name__ == '__main__':
