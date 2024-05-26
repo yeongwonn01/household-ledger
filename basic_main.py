@@ -18,28 +18,28 @@ def file_io(recv_input,output):
     with open(filename, 'w',encoding = "Utf-8") as file:
         file.writelines(line)
 
-def print_all():
+def print_all_basic_fx():
     with open(filename,'r',encoding="Utf-8") as file:
         line = file.readlines()
         j=0
+        new_line = []
         for i in line:
-            new_line = ("" if j == 0 else str(j)+"번: ")+i
-            print(new_line)
+            new_line.append(("" if j == 0 else str(j)+"번: ")+i)
             j+=1
-    return
+    return new_line
 
-def input_money():
-    recv_input = input("입금 내역을 입력하세요.\n입력형식 : x원\n:")
+def input_money(recv_input):
+    #recv_input = input("입금 내역을 입력하세요.\n입력형식 : x원\n:")
     file_io(recv_input,True)
     return
 
-def output_money():
-    recv_input = input("출금 내역을 입력하세요.\n입력형식 : x원\n:")
+def output_money(recv_input):
+    #recv_input = input("출금 내역을 입력하세요.\n입력형식 : x원\n:")
     file_io(recv_input,False)
     return
 
-def modify_breakdown():
-    recv_input = input("수정하고 싶은 내역 입력 \n입력형식 : x번 > 입금/출금 x원 년:월:일-시:분:초\n")
+def modify_breakdown(recv_input):
+    #recv_input = input("수정하고 싶은 내역 입력 \n입력형식 : x번 > 입금/출금 x원 년:월:일-시:분:초\n")
     recv_input = recv_input.split(">")
     cnt = recv_input[0].split("번")
     cnt = int(cnt[0])

@@ -14,10 +14,13 @@
    <string>Dialog</string>
   </property>
   <widget class="QGroupBox" name="input">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>364</x>
-     <y>264</y>
+     <x>10</x>
+     <y>510</y>
      <width>372</width>
      <height>192</height>
     </rect>
@@ -35,6 +38,9 @@
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
    <widget class="QPushButton" name="input_button">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>110</x>
@@ -53,7 +59,7 @@
      <string>버튼을 눌러 입금</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="input_textbox">
     <property name="geometry">
      <rect>
       <x>70</x>
@@ -112,8 +118,8 @@
   <widget class="QGroupBox" name="output">
    <property name="geometry">
     <rect>
-     <x>364</x>
-     <y>264</y>
+     <x>390</x>
+     <y>510</y>
      <width>372</width>
      <height>192</height>
     </rect>
@@ -130,7 +136,7 @@
    <property name="alignment">
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
-   <widget class="QPushButton" name="input_button_2">
+   <widget class="QPushButton" name="output_button">
     <property name="geometry">
      <rect>
       <x>110</x>
@@ -149,7 +155,7 @@
      <string>버튼을 눌러 출금</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="output_textbox">
     <property name="geometry">
      <rect>
       <x>70</x>
@@ -205,7 +211,132 @@
     </property>
    </widget>
   </widget>
+  <widget class="QComboBox" name="recv_list">
+   <property name="geometry">
+    <rect>
+     <x>870</x>
+     <y>10</y>
+     <width>201</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
+   <item>
+    <property name="text">
+     <string>메인</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>내역 출력</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>입금</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>출금</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>수정</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QGroupBox" name="print_all">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>10</y>
+     <width>851</width>
+     <height>571</height>
+    </rect>
+   </property>
+   <property name="toolTipDuration">
+    <number>-1</number>
+   </property>
+   <property name="title">
+    <string>내역 출력 그룹</string>
+   </property>
+   <widget class="QListView" name="scroll_print_all">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>831</width>
+      <height>541</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+   </widget>
+  </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>output_button</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>on_clicked_output()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>561</x>
+     <y>667</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>523</x>
+     <y>457</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>input_button</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>on_clicked_input()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>671</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>234</x>
+     <y>461</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>recv_list</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>Dialog</receiver>
+   <slot>on_dialog_changed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>941</x>
+     <y>41</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>911</x>
+     <y>157</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>on_clicked_output()</slot>
+  <slot>on_clicked_input()</slot>
+  <slot>on_dialog_changed()</slot>
+ </slots>
 </ui>
