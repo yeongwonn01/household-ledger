@@ -103,7 +103,7 @@ class Ui_Dialog(object):
         self.recv_list.addItem("")
         self.recv_list.addItem("")
         self.print_all = QtWidgets.QGroupBox(Dialog)
-        self.print_all.setGeometry(QtCore.QRect(0, 10, 851, 571))
+        self.print_all.setGeometry(QtCore.QRect(760, 510, 851, 571))
         self.print_all.setToolTipDuration(-1)
         self.print_all.setObjectName("print_all")
         self.scroll_print_all = QtWidgets.QListView(self.print_all)
@@ -112,11 +112,22 @@ class Ui_Dialog(object):
         font.setPointSize(11)
         self.scroll_print_all.setFont(font)
         self.scroll_print_all.setObjectName("scroll_print_all")
+        self.category = QtWidgets.QGroupBox(Dialog)
+        self.category.setGeometry(QtCore.QRect(770, 310, 201, 191))
+        self.category.setObjectName("category")
+        self.category_combo_box = QtWidgets.QComboBox(self.category)
+        self.category_combo_box.setGeometry(QtCore.QRect(10, 40, 181, 51))
+        self.category_combo_box.setObjectName("category_combo_box")
+        self.category_add_button = QtWidgets.QPushButton(self.category)
+        self.category_add_button.setGeometry(QtCore.QRect(10, 110, 181, 51))
+        self.category_add_button.setObjectName("category_add_button")
 
         self.retranslateUi(Dialog)
         self.output_button.clicked.connect(Dialog.on_clicked_output) # type: ignore
         self.input_button.clicked.connect(Dialog.on_clicked_input) # type: ignore
         self.recv_list.currentIndexChanged['int'].connect(Dialog.on_dialog_changed) # type: ignore
+        self.category_combo_box.currentIndexChanged['int'].connect(Dialog.on_category_changed) # type: ignore
+        self.category_add_button.clicked.connect(Dialog.on_category_add_button_clicked) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
@@ -136,6 +147,8 @@ class Ui_Dialog(object):
         self.recv_list.setItemText(3, _translate("Dialog", "출금"))
         self.recv_list.setItemText(4, _translate("Dialog", "수정"))
         self.print_all.setTitle(_translate("Dialog", "내역 출력 그룹"))
+        self.category.setTitle(_translate("Dialog", "카테고리 그룹"))
+        self.category_add_button.setText(_translate("Dialog", "추가"))
 
 
 if __name__ == "__main__":

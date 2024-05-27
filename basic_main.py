@@ -1,6 +1,7 @@
 from datetime import date,time,datetime
 
 filename = "data.txt"
+filename_category = "category_file.txt"
 def file_io(recv_input,output):
     current_time = datetime.now().strftime("%Y:%m:%d-%H:%M:%S")
     money = recv_input.split('원')
@@ -27,6 +28,11 @@ def print_all_basic_fx():
             new_line.append(("" if j == 0 else str(j)+"번: ")+i)
             j+=1
     return new_line
+
+def return_all_category_basic_fx():
+    with open(filename_category,'r',encoding="Utf-8") as file:
+        line = file.readlines()
+    return line
 
 def input_money(recv_input):
     #recv_input = input("입금 내역을 입력하세요.\n입력형식 : x원\n:")
