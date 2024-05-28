@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>381</width>
-    <height>281</height>
+    <width>383</width>
+    <height>287</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>category_add</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="category_add_add_button">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -23,10 +23,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>추가</string>
    </property>
   </widget>
-  <widget class="QListView" name="listView">
+  <widget class="QListView" name="category_add_list_view">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -36,7 +36,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="category_add_delete_button">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -46,10 +46,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>삭제</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="category_add_text_box">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -59,7 +59,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="category_add_exit_button">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -69,10 +69,81 @@
     </rect>
    </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>종료</string>
    </property>
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>category_add_add_button</sender>
+   <signal>clicked()</signal>
+   <receiver>category_add</receiver>
+   <slot>on_clicked_add()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>322</x>
+     <y>40</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>226</x>
+     <y>5</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>category_add_delete_button</sender>
+   <signal>clicked()</signal>
+   <receiver>category_add</receiver>
+   <slot>on_clicked_delete()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>327</x>
+     <y>106</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>154</x>
+     <y>78</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>category_add_exit_button</sender>
+   <signal>clicked()</signal>
+   <receiver>category_add</receiver>
+   <slot>on_clicked_quit()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>342</x>
+     <y>236</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>141</x>
+     <y>277</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>category_add_list_view</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>category_add</receiver>
+   <slot>on_clicked_list_view_index()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>150</x>
+     <y>171</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>312</x>
+     <y>171</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>on_clicked_add()</slot>
+  <slot>on_clicked_delete()</slot>
+  <slot>on_clicked_quit()</slot>
+  <slot>on_clicked_list_view_index()</slot>
+ </slots>
 </ui>

@@ -8,28 +8,28 @@ from PyQt5.QtCore import QStringListModel
 #_translate = QtCore.QCoreApplication.translate
 
 class MainApp(QMainWindow,Ui_Dialog):
-    def __init__(self):
-        super().__init__()
+    def __init__(self): #초기 설정
+        super().__init__() 
         self.setupUi(self)
         self.on_dialog_changed(0)
-        self.input.move(364,264)
-        self.output.move(364,264)
+        self.input.move(int((self.geometry().width()-self.input.geometry().width())/2),int((self.geometry().height()-self.input.geometry().height())/2))
+        self.output.move(int((self.geometry().width()-self.output.geometry().width())/2),int((self.geometry().height()-self.output.geometry().height())/2))
         self.print_all.move(int((self.geometry().width()-self.print_all.geometry().width())/2),int((self.geometry().height()-self.print_all.geometry().height())/2))
-        self.on_category_add_form_started = False
+        self.category_index = 0
     #ui 이벤트 함수
-    def on_clicked_input(self):
+    def on_clicked_input(self): #입금
         text = self.input_textbox.text()
         self.input_textbox.setText("")
         text = str(text) + "원"#basic_main 코드를 사용하기 위해 형식 지키기 -> 나중에 수정 필요
         input_money(text)
         return
-    def on_clicked_output(self):
+    def on_clicked_output(self): #출금
         text = self.output_textbox.text()
         self.output_textbox.setText("")
         text = str(text) + "원"#basic_main 코드를 사용하기 위해 형식 지키기 -> 나중에 수정 필요
         output_money(text)
         return
-    def on_dialog_changed(self,num):
+    def on_dialog_changed(self,num): #다이얼로그 바꼈을때
         if num == 2:
             self.input.show()
         else:
@@ -48,12 +48,12 @@ class MainApp(QMainWindow,Ui_Dialog):
             self.category_combo_box_fx()
         else:
             self.category.hide()
-    def on_category_add_button_clicked(self):
-        if self.on_category_add_form_started == False:
-            self.category_add_window_start()
-            self.on_category_add_form_started = True
+    def on_category_add_button_clicked(self): #카테고리 추가 버튼 클릭
+        self.category_add_window_start()
+        self.category_combo_box_fx()
         return
-    def on_category_changed(self,num):
+    def on_category_changed(self,num): #카테고리 바꼈을때
+        self.category_index = num
         return
     
     #추가한 함수
@@ -69,12 +69,13 @@ class MainApp(QMainWindow,Ui_Dialog):
         new_line:list = return_all_category_basic_fx()
         for i in range(len(new_line)):
             new_line[i] = new_line[i].replace("\n","")
+        self.category_combo_box.clear()
         self.category_combo_box.addItems(new_line)
         return
     def category_add_window_start(self): #카테고리 추가 폼 실행
         win = Ui_categoty_add_subform()
         win.showModal()
-        self.on_category_add_form_started = False
+        
         return
 
 if __name__ == '__main__':

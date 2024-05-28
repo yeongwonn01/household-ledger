@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1080</width>
-    <height>720</height>
+    <width>1088</width>
+    <height>740</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -251,37 +251,6 @@
     </property>
    </item>
   </widget>
-  <widget class="QGroupBox" name="print_all">
-   <property name="geometry">
-    <rect>
-     <x>760</x>
-     <y>510</y>
-     <width>851</width>
-     <height>571</height>
-    </rect>
-   </property>
-   <property name="toolTipDuration">
-    <number>-1</number>
-   </property>
-   <property name="title">
-    <string>내역 출력 그룹</string>
-   </property>
-   <widget class="QListView" name="scroll_print_all">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>20</y>
-      <width>831</width>
-      <height>541</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>11</pointsize>
-     </font>
-    </property>
-   </widget>
-  </widget>
   <widget class="QGroupBox" name="category">
    <property name="geometry">
     <rect>
@@ -315,6 +284,40 @@
     </property>
     <property name="text">
      <string>추가</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="print_all">
+   <property name="geometry">
+    <rect>
+     <x>770</x>
+     <y>510</y>
+     <width>851</width>
+     <height>571</height>
+    </rect>
+   </property>
+   <property name="toolTipDuration">
+    <number>-1</number>
+   </property>
+   <property name="title">
+    <string>내역 출력 그룹</string>
+   </property>
+   <widget class="QListView" name="scroll_print_all">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>831</width>
+      <height>541</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::NoEditTriggers</set>
     </property>
    </widget>
   </widget>
@@ -376,28 +379,28 @@
    <slot>on_category_changed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>857</x>
-     <y>323</y>
+     <x>926</x>
+     <y>381</y>
     </hint>
     <hint type="destinationlabel">
-     <x>905</x>
-     <y>232</y>
+     <x>777</x>
+     <y>274</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>category_add_button</sender>
-   <signal>clicked()</signal>
+   <signal>pressed()</signal>
    <receiver>Dialog</receiver>
    <slot>on_category_add_button_clicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>886</x>
-     <y>372</y>
+     <x>837</x>
+     <y>445</y>
     </hint>
     <hint type="destinationlabel">
-     <x>880</x>
-     <y>477</y>
+     <x>723</x>
+     <y>409</y>
     </hint>
    </hints>
   </connection>
