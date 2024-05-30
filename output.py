@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(1088, 740)
+        Dialog.resize(1080, 720)
         self.input = QtWidgets.QGroupBox(Dialog)
         self.input.setEnabled(True)
         self.input.setGeometry(QtCore.QRect(10, 510, 372, 192))
@@ -122,6 +122,30 @@ class Ui_Dialog(object):
         self.scroll_print_all.setFont(font)
         self.scroll_print_all.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.scroll_print_all.setObjectName("scroll_print_all")
+        self.total_money_print = QtWidgets.QGroupBox(Dialog)
+        self.total_money_print.setGeometry(QtCore.QRect(390, 450, 371, 61))
+        self.total_money_print.setObjectName("total_money_print")
+        self.total_label = QtWidgets.QLabel(self.total_money_print)
+        self.total_label.setGeometry(QtCore.QRect(10, 20, 61, 31))
+        font = QtGui.QFont()
+        font.setPointSize(13)
+        self.total_label.setFont(font)
+        self.total_label.setObjectName("total_label")
+        self.total_money_label = QtWidgets.QLabel(self.total_money_print)
+        self.total_money_label.setGeometry(QtCore.QRect(70, 20, 261, 31))
+        font = QtGui.QFont()
+        font.setPointSize(13)
+        self.total_money_label.setFont(font)
+        self.total_money_label.setText("")
+        self.total_money_label.setTextFormat(QtCore.Qt.AutoText)
+        self.total_money_label.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.total_money_label.setObjectName("total_money_label")
+        self.total_label_2 = QtWidgets.QLabel(self.total_money_print)
+        self.total_label_2.setGeometry(QtCore.QRect(338, 20, 31, 31))
+        font = QtGui.QFont()
+        font.setPointSize(13)
+        self.total_label_2.setFont(font)
+        self.total_label_2.setObjectName("total_label_2")
 
         self.retranslateUi(Dialog)
         self.output_button.clicked.connect(Dialog.on_clicked_output) # type: ignore
@@ -150,6 +174,9 @@ class Ui_Dialog(object):
         self.category.setTitle(_translate("Dialog", "카테고리 그룹"))
         self.category_add_button.setText(_translate("Dialog", "추가"))
         self.print_all.setTitle(_translate("Dialog", "내역 출력 그룹"))
+        self.total_money_print.setTitle(_translate("Dialog", "잔액"))
+        self.total_label.setText(_translate("Dialog", "잔액 : "))
+        self.total_label_2.setText(_translate("Dialog", "원"))
 
 
 if __name__ == "__main__":

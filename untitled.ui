@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1088</width>
-    <height>740</height>
+    <width>1080</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -321,6 +321,79 @@
     </property>
    </widget>
   </widget>
+  <widget class="QGroupBox" name="total_money_print">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>450</y>
+     <width>371</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>잔액</string>
+   </property>
+   <widget class="QLabel" name="total_label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>61</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>13</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>잔액 : </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="total_money_label">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>20</y>
+      <width>261</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>13</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::AutoText</enum>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="total_label_2">
+    <property name="geometry">
+     <rect>
+      <x>338</x>
+      <y>20</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>13</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>원</string>
+    </property>
+   </widget>
+  </widget>
  </widget>
  <resources/>
  <connections>
@@ -379,8 +452,8 @@
    <slot>on_category_changed()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>926</x>
-     <y>381</y>
+     <x>923</x>
+     <y>372</y>
     </hint>
     <hint type="destinationlabel">
      <x>777</x>
