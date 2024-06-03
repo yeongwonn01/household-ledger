@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>383</width>
-    <height>287</height>
+    <width>381</width>
+    <height>281</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -34,6 +34,9 @@
      <width>261</width>
      <height>192</height>
     </rect>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
    </property>
   </widget>
   <widget class="QPushButton" name="category_add_delete_button">
@@ -130,12 +133,12 @@
    <slot>on_clicked_list_view_index()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>150</x>
-     <y>171</y>
+     <x>226</x>
+     <y>169</y>
     </hint>
     <hint type="destinationlabel">
-     <x>312</x>
-     <y>171</y>
+     <x>302</x>
+     <y>175</y>
     </hint>
    </hints>
   </connection>

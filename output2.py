@@ -14,12 +14,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_category_add(object):
     def setupUi(self, category_add):
         category_add.setObjectName("category_add")
-        category_add.resize(383, 287)
+        category_add.resize(381, 281)
         self.category_add_add_button = QtWidgets.QPushButton(category_add)
         self.category_add_add_button.setGeometry(QtCore.QRect(280, 20, 91, 51))
         self.category_add_add_button.setObjectName("category_add_add_button")
         self.category_add_list_view = QtWidgets.QListView(category_add)
         self.category_add_list_view.setGeometry(QtCore.QRect(10, 80, 261, 192))
+        self.category_add_list_view.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.category_add_list_view.setObjectName("category_add_list_view")
         self.category_add_delete_button = QtWidgets.QPushButton(category_add)
         self.category_add_delete_button.setGeometry(QtCore.QRect(280, 80, 91, 51))

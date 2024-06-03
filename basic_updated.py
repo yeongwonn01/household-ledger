@@ -41,6 +41,7 @@ def money_io(money:int, io_check:bool,category:str):
             i += 1
     if does_inserted == False:
         new_line = file_create_category(category,new_money_str,io_check)
+        total_money+=money
         for i in new_line:
             line.append(i)
     with open(filename,'w',encoding="Utf-8") as file:
@@ -54,6 +55,31 @@ def file_input_output(line:list, j:int):
         total_inputoutput += int(new_line[0])
         j+= 1
     return j, total_inputoutput
+
+#총액 계산
+def total_money_check():
+    total_money:int = 0
+    with open(filename,'r',encoding="Utf-8") as file:
+        line = file.readlines()
+    i = 0
+    while i < len(line):
+        if "카테고리" in line[i]:
+            j = i
+            while line[j] != "}\n":
+                if line[j] == "입금\n":
+                    loc,total_money_input = file_input_output(line,j+1)
+                    total_money += total_money_input
+                    j = loc
+                elif line[j] == "출금\n":
+                    loc,total_money_output = file_input_output(line,j+1)
+                    total_money -= total_money_output
+                    j = loc
+                else:
+                    j+=1
+            i = j
+        else : 
+            i += 1
+    return total_money
 
 def file_create_category(category,money_str,io_check):
     new_line = []

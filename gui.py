@@ -55,6 +55,8 @@ class MainApp(QMainWindow,Ui_Dialog):
             self.category.show()
             self.total_money_print.show()
             self.category_combo_box_fx()
+            self.total_money = total_money_check()
+            self.total_money_update()
         else:
             self.category.hide()
             self.total_money_print.hide()
