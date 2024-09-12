@@ -4,6 +4,7 @@ from PyQt5 import QtCore
 from output import Ui_Dialog
 from category_add import Ui_categoty_add_subform
 from basic_updated import *
+from basic_main import *
 from PyQt5.QtCore import QStringListModel
 #_translate = QtCore.QCoreApplication.translate
 
@@ -70,10 +71,10 @@ class MainApp(QMainWindow,Ui_Dialog):
     
     #추가한 함수
     def print_all_fx(self): #내역 출력 함수
-        new_line=[]#print_all_basic_fx()
+        new_line= print_all_basic_fx()
         self.model = QStringListModel()
         for i in range(len(new_line)):
-            new_line[i] = new_line[i][:-1]
+            new_line[i] = new_line[i]
         self.model.setStringList(new_line)
         self.scroll_print_all.setModel(self.model)
         return
@@ -90,7 +91,7 @@ class MainApp(QMainWindow,Ui_Dialog):
         win.showModal()
         
         return
-    def total_money_update(self):
+    def total_money_update(self): #잔액 업데이트
         self.total_money_label.setText(str(self.total_money))
         return
 if __name__ == '__main__':

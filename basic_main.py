@@ -22,11 +22,39 @@ def file_io(recv_input,output):
 def print_all_basic_fx():
     with open(filename,'r',encoding="Utf-8") as file:
         line = file.readlines()
-        j=0
+        cnt_in = 1
+        cnt_out = 1
         new_line = []
+        cat_ = ""
+        io = ""
+        line_in = []
+        line_out = []
         for i in line:
-            new_line.append(("" if j == 0 else str(j)+"번: ")+i)
-            j+=1
+            i = i.split("\n")
+            i = i[0]
+            tmp_cat = i.split(":")    
+            tmp_line = ""
+            if(tmp_cat[0] == "카테고리"):
+                cat_ = tmp_cat[1]
+            elif(i == "입금"):
+                io = i
+            elif(i == "출금"):
+                io = i
+            elif(i != "]" and i != "}"):
+                if(io == "입금" and i != ""):
+                    tmp_line += str(cnt_in) + "|| " + cat_ + " " + i
+                    line_in.append(tmp_line)
+                    cnt_in +=1
+                elif(io == "출금" and i != ""):
+                    tmp_line += str(cnt_out) + "|| " + cat_ + " " + i
+                    line_out.append(tmp_line)
+                    cnt_out +=1
+        new_line.append("입금")
+        for i in line_in:
+            new_line.append(i)
+        new_line.append("출금")
+        for i in line_out:
+            new_line.append(i)
     return new_line
 
 def return_all_category_basic_fx():
