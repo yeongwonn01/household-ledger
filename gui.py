@@ -48,6 +48,7 @@ class MainApp(QMainWindow,Ui_Dialog):
         else:
             self.output.hide()
         if num == 1:
+            sort_data()
             self.print_all.show()
             self.print_all_fx()
         else:

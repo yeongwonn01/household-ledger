@@ -2,6 +2,7 @@ from datetime import date,time,datetime
 
 filename = "data.txt"
 filename_category = "category_file.txt"
+
 def file_io(recv_input,output):
     current_time = datetime.now().strftime("%Y:%m:%d-%H:%M:%S")
     money = recv_input.split('원')
@@ -103,3 +104,8 @@ def modify_breakdown(recv_input):
     with open(filename,'w',encoding="Utf-8") as file:
         file.writelines(line)
     return
+
+def sort_data():
+    with open(filename,'r',encoding="Utf-8") as file:
+        line = file.readlines()
+        print(line)
